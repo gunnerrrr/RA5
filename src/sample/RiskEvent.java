@@ -2,6 +2,8 @@ package sample;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 import java.util.ArrayList;
 
@@ -22,17 +24,17 @@ public class RiskEvent {
     private double lrer;
     private double vrer;
     private String priority;
-    private final ObjectProperty<RiskSolution> riskSolution = new SimpleObjectProperty<>();
-    public final ObjectProperty<RiskSolution> riskSolutionProperty() {
+    private  StringProperty riskSolution = new SimpleStringProperty();
+    public final StringProperty riskSolutionProperty() {
         return this.riskSolution;
     }
     public final String getRiskSolution() {
-        if( this.riskSolutionProperty().get()==RiskSolution.first);
-        return "попереднє навчання членів проектного колективу;";
+
+        return riskSolutionProperty().get();
     }
 
 
-    public final void setRiskSolution(final RiskSolution riskSolution) {
+    public final void setRiskSolution( String riskSolution) {
         this.riskSolutionProperty().set(riskSolution);
     }
     public RiskEvent(String name, ArrayList<Double> marks,double lrer) {

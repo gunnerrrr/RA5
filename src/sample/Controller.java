@@ -278,7 +278,7 @@ public class Controller {
     private TableColumn<RiskEvent, String> RiskEvents;
 
     @FXML
-    private TableColumn<RiskEvent, RiskSolution> Solution;
+    private TableColumn<RiskEvent, String> Solution;
 
     @FXML
     private TableColumn<RiskEvent, String> tableEventsR;
@@ -352,18 +352,34 @@ public class Controller {
     @FXML
     void initialize () {
         ObservableList<String> solutions = FXCollections.observableArrayList(
-                "1",
-                "2",
-                "3"
+                "попереднє навчання членів проектного колективу",
+                "узгодження детального переліку вимог до ПЗ із замовником",
+                "внесення узгодженого переліку вимог до ПЗ замовника в договір",
+                "точне слідування вимогам замовника з узгодженого переліку вимог до ПЗ",
+                "попередні дослідження ринку",
+                "експертна оцінка програмного проекту досвідченим стороннім консультантом",
+                "консультації досвідченого стороннього консультанта",
+                "тренінг з вивчення необхідних інструментів розроблення ПЗ",
+                "укладання договору страхування",
+                "використання \"шаблонних\" рішень з вдалих попередніх проектів при управлінні програмним проектом",
+                "підготовка документів, які показують важливість даного проекту для досягнення фінансових цілей компанії-розробника",
+                "реорганізація роботи проектного колективу так, щоб обов'язки та робота членів колективу перекривали один одного",
+                "придбання (замовлення) частини компонент розроблюваного ПЗ",
+                "заміна потенційно дефектних компонент розроблюваного ПЗ придбаними компонентами, які гарантують якість виконання роботи",
+                "придбання більш продуктивної бази даних",
+                "використання генератора програмного коду",
+                "реорганізація роботи проектного колективу залежно від рівня труднощів виконання завдань та професійних рівнів розробників",
+                "повторне використання придатних компонент ПЗ, які були розроблені для інших програмних проектів",
+                "аналіз доцільності розроблення даного ПЗ"
         );
         Solution.setCellValueFactory(cellData -> cellData.getValue().riskSolutionProperty());
 
         Solution.setCellFactory(tc -> {
-            ComboBox<RiskSolution> combo = new ComboBox<>();
-            combo.getItems().addAll(RiskSolution.values());
-            TableCell<RiskEvent, RiskSolution> cell = new TableCell<RiskEvent, RiskSolution>() {
+            ComboBox<String> combo = new ComboBox<>();
+            combo.getItems().addAll(solutions);
+            TableCell<RiskEvent, String> cell = new TableCell<RiskEvent, String>() {
                 @Override
-                protected void updateItem(RiskSolution reason, boolean empty) {
+                protected void updateItem(String reason, boolean empty) {
                     super.updateItem(reason, empty);
                     if (empty) {
                         setGraphic(null);
@@ -374,7 +390,7 @@ public class Controller {
                 }
             };
             combo.setOnAction(e ->
-                    tableSolution.getItems().get(cell.getIndex()).setRiskSolution(combo.getValue()));
+                    tableSolution.getItems().get(cell.getIndex()).setRiskSolution(combo.getValue().toString()));
             return cell ;
         });
 //        Solution.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
