@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.PointLight?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <TabPane id="tab" fx:id="allTabPane" prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: #DDDDDD;" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab id="identificationTab" fx:id="identificationTabidentificationTab" text="Ідентифікація ризиків">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane fx:id="firstStageTab" layoutX="-1.0" layoutY="-3.0" prefHeight="650.0" prefWidth="1200.0" style="-fx-border-color: #000000;" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab id=" sourcesTab" fx:id="sourcesTab" text="Джерела появи ризиків">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <AnchorPane layoutX="1.0" prefHeight="266.0" prefWidth="291.0" styleClass="sources">
+                                                            <children>
+                                                                <CheckBox fx:id="t1" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="функціональні характеристики ПЗ" />
+                                                                <CheckBox fx:id="t2" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="характеристики якості ПЗ" />
+                                                                <CheckBox fx:id="t3" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="характеристики надійності ПЗ" />
+                                                                <CheckBox fx:id="t4" layoutX="25.0" layoutY="121.0" mnemonicParsing="false" text="застосовність ПЗ" />
+                                                                <CheckBox fx:id="t5" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" text="часова продуктивність ПЗ" />
+                                                                <CheckBox fx:id="t6" layoutX="25.0" layoutY="181.0" mnemonicParsing="false" text="супроводжуваність ПЗ" />
+                                                                <CheckBox fx:id="t7" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" text="повторне використання ПЗ" />
+                                                                <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
+                                                                <Label layoutX="27.0" text="Оберіть джерела появи технічних ризиків" textAlignment="CENTER" AnchorPane.leftAnchor="27.0">
+                                                                    <font>
+                                                                        <Font name="Khmer Sangam MN" size="13.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                        <AnchorPane layoutX="297.0" layoutY="139.0" prefHeight="123.0" prefWidth="500.0">
+                                                            <children>
+                                                                <CheckBox fx:id="c1" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="обмеження сумарного бюджету на програмний проєкт" />
+                                                                <CheckBox fx:id="c2" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="недоступна вартість реалізації програмного проєкту" />
+                                                                <CheckBox fx:id="c3" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="низька ступінь реалізму при оцінюванні витрат на програмний проєкт" />
+                                                                <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
+                                                                <Label layoutX="27.0" text="Оберіть джерела появи вартісних ризиків" textAlignment="CENTER" AnchorPane.leftAnchor="27.0">
+                                                                    <font>
+                                                                        <Font name="Khmer Sangam MN" size="13.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                        <AnchorPane layoutX="292.0" prefHeight="123.0" prefWidth="500.0">
+                                                            <children>
+                                                                <CheckBox fx:id="p1" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="властивості та можливості гнучкості внесення змін до планів життєвого циклу розроблення ПЗ" />
+                                                                <CheckBox fx:id="p2" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="можливості порушення встановлених термінів реалізації етапів життєвого циклу розроблення ПЗ" />
+                                                                <CheckBox fx:id="p3" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="низька ступінь реалізму при встановленні планів і етапів життєвого циклу роз- роблення ПЗ" />
+                                                                <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
+                                                                <Label layoutX="27.0" text="Оберіть джерела появи планових ризиків" textAlignment="CENTER" AnchorPane.leftAnchor="27.0">
+                                                                    <font>
+                                                                        <Font name="Khmer Sangam MN" size="13.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                        <AnchorPane layoutX="2.0" layoutY="269.0" prefHeight="182.0" prefWidth="495.0" styleClass="sources">
+                                                            <children>
+                                                                <CheckBox fx:id="m1" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="хибна стратегія реалізації програмного проекту" />
+                                                                <CheckBox fx:id="m2" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="неефективне планування проекту розроблення ПЗ" />
+                                                                <CheckBox fx:id="m3" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="неякісне оцінювання програмного проекту" />
+                                                                <CheckBox fx:id="m4" layoutX="25.0" layoutY="121.0" mnemonicParsing="false" text="прогалини в документуванні етапів реалізації програмного проекту" />
+                                                                <CheckBox fx:id="m5" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" text="промахи в прогнозуванні результатів реалізації програмного проекту" />
+                                                                <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
+                                                                <Label layoutX="27.0" text="Оберіть джерела появи ризиків реалізації" textAlignment="CENTER" AnchorPane.leftAnchor="27.0">
+                                                                    <font>
+                                                                        <Font name="Khmer Sangam MN" size="13.0" />
+                                                                    </font>
+                                                                </Label>
+                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                        <AnchorPane layoutX="889.0" layoutY="152.0" prefHeight="314.0" prefWidth="299.0">
+                                                            <children>
+                                                                <Label layoutX="39.0" layoutY="29.0" text="Ймовірність появи джерел ризиків" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label layoutX="36.0" layoutY="75.0" text="Технічні ризики" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label layoutX="36.0" layoutY="109.0" text="Фінансові ризики" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label layoutX="36.0" layoutY="142.0" text="Планові ризики" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label layoutX="36.0" layoutY="175.0" text="Ризики управління" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label fx:id="percentTechR1" layoutX="197.0" layoutY="77.0" text="0%" AnchorPane.rightAnchor="79.0" />
+                                                                <Label fx:id="percentFinR1" layoutX="197.0" layoutY="106.0" text="0%" AnchorPane.rightAnchor="79.0" />
+                                                                <Label fx:id="percentPlanR1" layoutX="196.0" layoutY="135.0" text="0%" AnchorPane.rightAnchor="79.0" />
+                                                                <Label fx:id="percentManR1" layoutX="202.0" layoutY="165.0" text="0%" AnchorPane.rightAnchor="79.0" />
+                                                                <Label layoutX="36.0" layoutY="216.0" text="Сума:" />
+                                                                <Label fx:id="percentManR11" layoutX="98.0" layoutY="217.0" text="0%" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab id="potentialRiskEvents" fx:id="potentialRiskEvents" text="Потенційні ризикові події">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="971.0">
+                                                    <children>
+                                                        <TabPane prefHeight="531.0" prefWidth="870.0" tabClosingPolicy="UNAVAILABLE">
+                                                            <tabs>
+                                                                <Tab text="Технічні ризикові події">
+                                                                    <content>
+                                                                        <AnchorPane prefHeight="402.0" prefWidth="424.0" styleClass="sources">
+                                                                            <children>
+                                                                                <CheckBox fx:id="t1r" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="затримки у постачанні обладнання, необхідного для підтримки процесу розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t2r" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="затримки у постачанні інструментальних засобів, необхідних для підтримки процесу розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t3r" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="небажання команди виконавців ПЗ використовувати інструментальні засоби для підтримки процесу розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t4r" layoutX="25.0" layoutY="121.0" mnemonicParsing="false" text="відмова команди виконавців від CASE-засобів розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t5r" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" text="формування запитів на більш потужні інструментальні засоби розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t6r" layoutX="25.0" layoutY="181.0" mnemonicParsing="false" text="недостатня продуктивність баз(и) даних для підтримки процесу розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t7r" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" text="програмні компоненти, які використовують повторно в ПЗ, мають дефекти та обмежені функціональні можливості" AnchorPane.leftAnchor="25.0" />
+                                                                                <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
+                                                                                <Label layoutX="27.0" text="Оберіть елементи настання технічних ризикових подій" textAlignment="CENTER">
+                                                                                    <font>
+                                                                                        <Font name="Khmer Sangam MN" size="13.0" />
+                                                                                    </font>
+                                                                                </Label>
+                                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
+                                                                                <CheckBox fx:id="t8r" layoutX="25.0" layoutY="242.0" mnemonicParsing="false" text="неефективність програмного коду, згенерованого CASE-засобами розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t9r" layoutX="25.0" layoutY="270.0" mnemonicParsing="false" text="неможливість інтеграції CASE-засобів з іншими інструментальними засобами для підтримки процесу розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t10r" layoutX="25.0" layoutY="297.0" mnemonicParsing="false" text="швидкість виявлення дефектів у програмному коді є нижчою від раніше запланованих термінів" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="t11r" layoutX="25.0" layoutY="326.0" mnemonicParsing="false" text="поява дефектних системних компонент, які використовують для розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                            </children>
+                                                                        </AnchorPane>
+                                                                    </content>
+                                                                </Tab>
+                                                                <Tab text="Вартісні ризикові події">
+                                                                    <content>
+                                                                        <AnchorPane prefHeight="402.0" prefWidth="424.0" styleClass="sources">
+                                                                            <children>
+                                                                                <CheckBox fx:id="с1r" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="недооцінювання витрат на реалізацію програмного проекту (надмірно низька вартість)" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="с2r" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="переоцінювання витрат на реалізацію програмного проекту (надмірно висока вартість)" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="с3r" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="фінансові ускладнення у компанії-замовника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="с4r" layoutX="25.0" layoutY="121.0" mnemonicParsing="false" text="фінансові ускладнення у компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="с5r" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" text="збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="с6r" layoutX="25.0" layoutY="181.0" mnemonicParsing="false" text="збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="с7r" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" text="висока вартість виконання повторних робіт, необхідних для зміни вимог до ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
+                                                                                <Label layoutX="27.0" text="Оберіть елементи настання вартісних ризикових подій" textAlignment="CENTER">
+                                                                                    <font>
+                                                                                        <Font name="Khmer Sangam MN" size="13.0" />
+                                                                                    </font>
+                                                                                </Label>
+                                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
+                                                                                <CheckBox fx:id="с8r" layoutX="25.0" layoutY="242.0" mnemonicParsing="false" text="реорганізація структурних підрозділів у компанії-замовника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="с9r" layoutX="25.0" layoutY="270.0" mnemonicParsing="false" text="реорганізація команди виконавців у компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                            </children>
+                                                                        </AnchorPane>
+                                                                    </content></Tab>
+                                                                <Tab text="Планові ризикові події">
+                                                                    <content>
+                                                                        <AnchorPane prefHeight="402.0" prefWidth="424.0" styleClass="sources">
+                                                                            <children>
+                                                                                <CheckBox fx:id="p1r" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="зміни графіка виконання робіт з боку замовника чи виконавця" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p2r" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="порушення графіка виконання робіт у компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p3r" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="потреба зміни користувацьких вимог до ПЗ з боку компанії-замовника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p4r" layoutX="25.0" layoutY="121.0" mnemonicParsing="false" text="потреба зміни функціональних вимог до ПЗ з боку компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p5r" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" text="потреба виконання великої кількості повторних робіт, необхідних для зміни вимог до ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p6r" layoutX="25.0" layoutY="181.0" mnemonicParsing="false" text="недооцінювання тривалості етапів реалізації програмного проекту з боку компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p7r" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" text="переоцінювання тривалості етапів реалізації програмного проекту" AnchorPane.leftAnchor="25.0" />
+                                                                                <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
+                                                                                <Label layoutX="27.0" text="Оберіть елементи настання планових ризикових подій" textAlignment="CENTER">
+                                                                                    <font>
+                                                                                        <Font name="Khmer Sangam MN" size="13.0" />
+                                                                                    </font>
+                                                                                </Label>
+                                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
+                                                                                <CheckBox fx:id="p8r" layoutX="25.0" layoutY="242.0" mnemonicParsing="false" text="остаточний розмір ПЗ перевищує заплановані його характеристики" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p9r" layoutX="25.0" layoutY="270.0" mnemonicParsing="false" text="остаточний розмір ПЗ значно менший за планові його характеристики" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p10r" layoutX="25.0" layoutY="297.0" mnemonicParsing="false" text="поява на ринку аналогічного ПЗ до виходу замовленого" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="p11r" layoutX="25.0" layoutY="326.0" mnemonicParsing="false" text="поява на ринку більш конкурентоздатного ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                            </children>
+                                                                        </AnchorPane>
+                                                                    </content></Tab>
+                                                                <Tab text="Ризикові події реалізації">
+                                                                    <content>
+                                                                        <AnchorPane prefHeight="402.0" prefWidth="424.0" styleClass="sources">
+                                                                            <children>
+                                                                                <CheckBox fx:id="m1r" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="низький моральний стан персоналу команди виконавців ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m2r" layoutX="25.0" layoutY="56.0" mnemonicParsing="false" text="низька взаємодія між членами команди виконавців ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m3r" layoutX="25.0" layoutY="82.0" mnemonicParsing="false" text="пасивність керівника (менеджера) програмного проекту" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m4r" layoutX="25.0" layoutY="108.0" mnemonicParsing="false" text="недостатня компетентність керівника (менеджера) програмного проекту" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m5r" layoutX="25.0" layoutY="136.0" mnemonicParsing="false" text="незадоволеність замовника результатами етапів реалізації програмного проекту" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m6r" layoutX="25.0" layoutY="163.0" mnemonicParsing="false" text="недостатня кількість фахівців у команді виконавців ПЗ з необхідним професійним рівнем" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m7r" layoutX="25.0" layoutY="190.0" mnemonicParsing="false" text="хвороба провідного виконавця в найкритичніший момент розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
+                                                                                <Label layoutX="27.0" text="Оберіть елементи настання ризикових подій реалізації" textAlignment="CENTER">
+                                                                                    <font>
+                                                                                        <Font name="Khmer Sangam MN" size="13.0" />
+                                                                                    </font>
+                                                                                </Label>
+                                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
+                                                                                <CheckBox fx:id="m8r" layoutX="25.0" layoutY="216.0" mnemonicParsing="false" text="одночасна хвороба декількох виконавців підчас розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m9r" layoutX="25.0" layoutY="242.0" mnemonicParsing="false" text="неможливість організації необхідного навчання персоналу команди виконавців ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m10r" layoutX="25.0" layoutY="268.0" mnemonicParsing="false" text="зміна пріоритетів у процесі управління програмним проектом" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m11r" layoutX="25.0" layoutY="294.0" mnemonicParsing="false" text="недооцінювання необхідної кількості розробників (підрядників і субпідрядників) на етапах життєвого циклу розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m12r" layoutX="25.0" layoutY="320.0" mnemonicParsing="false" text="переоцінювання необхідної кількості розробників (підрядників і субпідрядників) на етапах життєвого циклу розроблення ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m13r" layoutX="25.0" layoutY="346.0" mnemonicParsing="false" text="надмірне документування результатів на етапах реалізації програмного проекту" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m14r" layoutX="25.0" layoutY="373.0" mnemonicParsing="false" text="недостатнє документування результатів на етапах реалізації програмного проекту" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m15r" layoutX="25.0" layoutY="400.0" mnemonicParsing="false" text="нереалістичне прогнозування результатів на етапах реалізації програмного проекту" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="m16r" layoutX="25.0" layoutY="427.0" mnemonicParsing="false" text="недостатній професійний рівень представників від компанії-замовника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                            </children>
+                                                                        </AnchorPane>
+                                                                    </content></Tab>
+                                                            </tabs>
+                                                        </TabPane>
+                                                        <AnchorPane layoutX="899.0" layoutY="138.0" prefHeight="314.0" prefWidth="299.0">
+                                                            <children>
+                                                                <Label layoutX="39.0" layoutY="29.0" text="Ймовірність появи ризикових подій" AnchorPane.bottomAnchor="270.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label layoutX="36.0" layoutY="75.0" text="Технічні ризики" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label layoutX="36.0" layoutY="109.0" text="Фінансові ризики" AnchorPane.bottomAnchor="190.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label layoutX="36.0" layoutY="142.0" text="Планові ризики" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label layoutX="36.0" layoutY="175.0" text="Ризики управління" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="36.0" />
+                                                                <Label fx:id="percentTechR" layoutX="197.0" layoutY="77.0" text="0%" AnchorPane.rightAnchor="79.0" />
+                                                                <Label fx:id="percentFinR" layoutX="197.0" layoutY="106.0" text="0%" AnchorPane.rightAnchor="79.0" />
+                                                                <Label fx:id="percentPlanR" layoutX="196.0" layoutY="135.0" text="0%" AnchorPane.rightAnchor="79.0" />
+                                                                <Label fx:id="percentManR" layoutX="202.0" layoutY="165.0" text="0%" AnchorPane.rightAnchor="79.0" />
+                                                                <Label layoutX="40.0" layoutY="226.0" text="Сума:" />
+                                                                <Label fx:id="percentManR111" layoutX="94.0" layoutY="227.0" text="0%" />
+                                                            </children>
+                                                        </AnchorPane>
+                                                    </children></AnchorPane>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab id="analysisTab" fx:id="analysisTabanalysisTab" text="Аналіз ризиків">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TabPane layoutX="-2.0" layoutY="-5.0" prefHeight="600.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE">
+                                    <tabs>
+                                        <Tab text="Формалізована модель ймовірностей появи ризикових подій">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TableView fx:id="tableRiskProbability" prefHeight="496.0" prefWidth="1072.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="tableEventsR" prefWidth="725.0" text="Ризикові події" />
+                                                                <TableColumn fx:id="ex1" minWidth="0.0" prefWidth="30.0" text="1" />
+                                                                <TableColumn fx:id="ex2" prefWidth="30.0" text="2" />
+                                                                <TableColumn fx:id="ex3" prefWidth="30.0" text="3" />
+                                                                <TableColumn fx:id="ex4" prefWidth="30.0" text="4" />
+                                                                <TableColumn fx:id="ex5" prefWidth="30.0" text="5" />
+                                                                <TableColumn fx:id="ex6" prefWidth="30.0" text="6" />
+                                                                <TableColumn fx:id="ex7" prefWidth="30.0" text="7" />
+                                                                <TableColumn fx:id="ex8" prefWidth="30.0" text="8" />
+                                                                <TableColumn fx:id="ex9" prefWidth="30.0" text="9" />
+                                                                <TableColumn fx:id="ex10" prefWidth="30.0" text="10" />
+                                                                <TableColumn fx:id="er" prefWidth="75.0" text="ER" />
+                                                            </columns>
+                                                            <rowFactory>
+
+                                                            </rowFactory>
+                                                        </TableView>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </Tab>
+                                        <Tab text="Величина ризику">
+                                            <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                    <children>
+                                                        <TableView fx:id="tableRiskProbability1" prefHeight="496.0" prefWidth="1058.0">
+                                                            <columns>
+                                                                <TableColumn fx:id="tableEventsR1" prefWidth="709.0" text="Ризикові події" />
+                                                                <TableColumn fx:id="ER" minWidth="0.0" prefWidth="49.0" text="ER" />
+                                                                <TableColumn fx:id="amountOfDamage" minWidth="8.0" prefWidth="117.0" text="Розміри збитків" />
+                                                                <TableColumn fx:id="VRER" minWidth="0.0" prefWidth="68.0" text="VRER" />
+                                                                <TableColumn fx:id="Priority" minWidth="9.0" prefWidth="114.0" text="Пріоритет" />
+                                                            </columns>
+                                                        </TableView>
+                                                    </children></AnchorPane>
+                                            </content>
+                                        </Tab>
+                                    </tabs>
+                                </TabPane>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab id="planningTab" fx:id="planningTab" text="Планування ризиків">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView layoutX="-1.0" layoutY="-3.0" prefHeight="593.0" prefWidth="1200.0">
+                                    <columns>
+                                        <TableColumn prefWidth="600.0" text="Ризикові події" />
+                                        <TableColumn minWidth="0.0" prefWidth="600.0" text="Можливе рішення" />
+                                    </columns>
+                                </TableView>
+                            </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab id="monitoringTab" fx:id="monitoringTab" text="Моніторинг ризиків">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab id="resultTab" fx:id="resultTab" text="Результат">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
