@@ -254,7 +254,7 @@
                                             <content>
                                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                     <children>
-                                                        <TableView fx:id="tableRiskProbability" prefHeight="496.0" prefWidth="1072.0">
+                                                        <TableView fx:id="tableRiskProbability" prefHeight="496.0" prefWidth="1002.0">
                                                             <columns>
                                                                 <TableColumn fx:id="tableEventsR" prefWidth="525.0" text="Ризикові події" />
                                                                 <TableColumn fx:id="ex1" minWidth="0.0" prefWidth="40" text="1" />
@@ -270,6 +270,22 @@
                                                                 <TableColumn fx:id="er" prefWidth="175.0" text="ER" />
                                                             </columns>
                                                         </TableView>
+                                          <AnchorPane layoutX="1003.0" layoutY="103.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Label text="Формалізована модель" />
+                                                <Label layoutX="2.0" layoutY="23.0" text="Технічні ризики" />
+                                                <Label layoutX="3.0" layoutY="49.0" text="Фінансові ризики" />
+                                                <Label layoutX="4.0" layoutY="73.0" text="Планові ризики" />
+                                                <Label layoutX="4.0" layoutY="98.0" text="Ризики управління" />
+                                                <Label fx:id="percentTechR11" layoutX="134.0" layoutY="21.0" text="0%" AnchorPane.leftAnchor="134.0" />
+                                                <Label fx:id="percentFinR11" layoutX="135.0" layoutY="47.0" text="0%" AnchorPane.leftAnchor="134.0" />
+                                                <Label fx:id="percentPlanR11" layoutX="136.0" layoutY="73.0" text="0%" AnchorPane.leftAnchor="134.0" />
+                                                <Label fx:id="percentManR12" layoutX="135.0" layoutY="98.0" text="0%" AnchorPane.leftAnchor="134.0" />
+                                                <Label layoutX="14.0" layoutY="137.0" text="Сума:" />
+                                                <Label fx:id="percentManR112" layoutX="64.0" layoutY="137.0" text="0%" />
+                                                <Button fx:id="calculateButton11" layoutX="63.0" layoutY="163.0" mnemonicParsing="false" text="Обчислити" />
+                                             </children>
+                                          </AnchorPane>
                                                     </children>
                                                 </AnchorPane>
                                             </content>

@@ -21,8 +21,5 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1200, 650));
         primaryStage.show();
         //Create a customer cell factory so that cells can support editing.
-
-
-
     }
 }

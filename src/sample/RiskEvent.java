@@ -118,6 +118,7 @@ public class RiskEvent {
         this.calculateVRER();
         this.CalculateResEx();
         calculateERr();
+        calculateLrerRAndVrerR();
     }
 
     public void setPriority(String priority) {
@@ -302,12 +303,24 @@ public class RiskEvent {
         double factor = 1e2; // = 1 * 10^5 = 100000.
         vrer = Math.round(x * factor) / factor;
     }
+
+    public void setLrerR(double lrerR) {
+        this.lrerR = lrerR;
+    }
+
     public void calculateLrerRAndVrerR () {
         double x=lrer*0.75;
         double factor = 1e2; // = 1 * 10^5 = 100000.
         this.lrerR=Math.round(x * factor) / factor;
-        x=vrer*0.75;
+        x=lrerR*ERr;
         this.vrerR=Math.round(x * factor) / factor;
+
+    }
+    public void calculateVrerR(){
+        double x=lrerR*ERr;
+        double factor = 1e2; // = 1 * 10^5 = 100000.
+        this.vrerR=Math.round(x * factor) / factor;
+
     }
     public void CalculateResEx(){
         double x=ex1*0.75;
