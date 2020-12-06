@@ -335,10 +335,67 @@ public class Controller {
     private TableColumn<RiskEvent, String> Priority;
 
     @FXML
+    private TableView<RiskEvent> tableRiskProbability11;
+
+    @FXML
+    private TableColumn<RiskEvent, String> tableEventsR4;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ER1;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> amountOfDamage1;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> VRER1;
+
+    @FXML
+    private TableColumn<RiskEvent, String> Priority1;
+
+    @FXML
     private Tab planningTab;
 
     @FXML
     private Tab monitoringTab;
+
+    @FXML
+    private TableView<RiskEvent> tableRiskProbability2;
+
+    @FXML
+    private TableColumn<RiskEvent, String> tableEventsR2;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex1r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex2r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex3r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex4r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex5r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex6r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex7r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex8r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex9r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> ex10r;
+
+    @FXML
+    private TableColumn<RiskEvent, Double> er1;
 
     @FXML
     private Tab resultTab;
@@ -530,35 +587,30 @@ public class Controller {
         ex8.setCellFactory(cellFactory);
         VRER.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("vrer"));
         Priority.setCellValueFactory(new PropertyValueFactory<RiskEvent,String>("priority"));
-//        Solution.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-//
-//        Solution.setCellFactory(ComboBoxTableCell.forTableColumn("Friends", "Family", "Work Contacts"));
 
+        tableEventsR2.setCellValueFactory(new PropertyValueFactory<RiskEvent,String>("name"));
+        ex1r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex1r"));
+        ex1r.setCellFactory(cellFactory);
+        ex2r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex2r"));
+        ex2r.setCellFactory(cellFactory);
+        ex3r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex3r"));
+        ex3r.setCellFactory(cellFactory);
+        ex4r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex4r"));
+        ex4r.setCellFactory(cellFactory);
+        ex5r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex5r"));
+        ex5r.setCellFactory(cellFactory);
+        ex6r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex6r"));
+        ex6r.setCellFactory(cellFactory);
+        ex7r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex7r"));
+        ex7r.setCellFactory(cellFactory);
+        ex8r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex8r"));
+        ex8r.setCellFactory(cellFactory);
+        ex9r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex9r"));
+        ex9r.setCellFactory(cellFactory);
+        ex10r.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex10r"));
+        ex10r.setCellFactory(cellFactory);
+        er1.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ERr"));
 
-//        Solution.setCellValueFactory(cellData -> {
-//            return cellData.getValue().nameProperty();
-//        });
-//        Solution.setCellFactory(ComboBoxTableCell.forTableColumn(solutions));
-//        Solution.setCellFactory(ComboBoxTableCell.forTableColumn(solutions));
-//        Solution.setCellValueFactory(i -> {
-//            final StringProperty value = i.getValue().optionProperty();
-//            // binding to constant value
-//            return Bindings.createObjectBinding(() -> value);
-//        });
-//        Solution.setCellFactory(col -> {
-//            TableCell<TableViewTest, StringProperty> c = new TableCell<>();
-//            final ComboBox<String> comboBox = new ComboBox<>(solutions);
-//            c.itemProperty().addListener((observable, oldValue, newValue) -> {
-//                if (oldValue != null) {
-//                    comboBox.valueProperty().unbindBidirectional(oldValue);
-//                }
-//                if (newValue != null) {
-//                    comboBox.valueProperty().bindBidirectional(newValue);
-//                }
-//            });
-//            c.graphicProperty().bind(Bindings.when(c.emptyProperty()).then((Node) null).otherwise(comboBox));
-//            return c;
-//        });
 
 
         ex1.setOnEditCommit(t -> {
@@ -566,12 +618,19 @@ public class Controller {
             t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateER();
             t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateVRER();
             CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
         });
         ex2.setOnEditCommit(t -> {
             t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx2((t.getNewValue()));
             t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateER();
             t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateVRER();
             CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
         });
         ex3.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
             @Override
@@ -580,6 +639,9 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
         ex4.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
@@ -589,6 +651,9 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
         ex5.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
@@ -598,6 +663,9 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
         ex6.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
@@ -607,6 +675,9 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
         ex7.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
@@ -616,6 +687,9 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
         ex8.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
@@ -625,6 +699,9 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
         ex9.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
@@ -634,6 +711,9 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
         ex10.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
@@ -643,6 +723,9 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
         amountOfDamage.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
@@ -651,13 +734,100 @@ public class Controller {
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setLrer((t.getNewValue()));
                 ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateVRER();
                 CalculatePriorities(riskEvents);
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+                t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
             }
         });
+
+        ex1r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx1r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+        ex2r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx2r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+        ex3r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx3r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+        ex4r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx4r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+        ex5r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx5r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+        ex6r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx6r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+        ex7r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx7r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+        ex8r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx8r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+
+        });
+        ex9r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx9r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+        ex10r.setOnEditCommit(t -> {
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).setEx10r((t.getNewValue()));
+            CalculatePriorities(riskEvents);
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).CalculateResEx();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateERr();
+            t.getTableView().getItems().get(t.getTablePosition().getRow()).calculateLrerRAndVrerR();
+
+        });
+
 
 
 
         tableRiskProbability.setItems(riskEvents);
         tableRiskProbability1.setItems(riskEvents);
+        tableRiskProbability2.setItems(riskEvents);
         tableSolution.setItems(riskEvents);
         tableRiskProbability.setEditable(true);
 

@@ -21,10 +21,82 @@ public class RiskEvent {
     private double ex8;
     private double ex9;
     private double ex10;
+    private double ex1r;
+    private double ex2r;
+    private double ex3r;
+    private double ex4r;
+    private double ex5r;
+    private double ex6r;
+    private double ex7r;
+    private double ex8r;
+    private double ex9r;
+    private double ERr;
+    private double ex10r;
     private double lrer;
     private double vrer;
     private String priority;
     private  StringProperty riskSolution = new SimpleStringProperty();
+    private String priorityR;
+    private double lrerR;
+    private double vrerR;
+
+    public String getPriorityR() {
+        return priorityR;
+    }
+
+    public double getLrerR() {
+        return lrerR;
+    }
+
+    public double getVrerR() {
+        return vrerR;
+    }
+
+    public void setPriorityR(String priorityR) {
+        this.priorityR = priorityR;
+    }
+
+
+    public double getEx1r() {
+        return ex1r;
+    }
+
+    public double getEx2r() {
+        return ex2r;
+    }
+
+    public double getEx3r() {
+        return ex3r;
+    }
+
+    public double getEx4r() {
+        return ex4r;
+    }
+
+    public double getEx5r() {
+        return ex5r;
+    }
+
+    public double getEx6r() {
+        return ex6r;
+    }
+
+    public double getEx7r() {
+        return ex7r;
+    }
+
+    public double getEx8r() {
+        return ex8r;
+    }
+
+    public double getEx9r() {
+        return ex9r;
+    }
+
+    public double getEx10r() {
+        return ex10r;
+    }
+
     public final StringProperty riskSolutionProperty() {
         return this.riskSolution;
     }
@@ -44,6 +116,8 @@ public class RiskEvent {
         this.calculateER();
         this.lrer=lrer;
         this.calculateVRER();
+        this.CalculateResEx();
+        calculateERr();
     }
 
     public void setPriority(String priority) {
@@ -68,6 +142,50 @@ public class RiskEvent {
 
     public String getName() {
         return name;
+    }
+
+    public double getERr() {
+        return ERr;
+    }
+
+    public void setEx1r(double ex1r) {
+        this.ex1r = ex1r;
+    }
+
+    public void setEx2r(double ex2r) {
+        this.ex2r = ex2r;
+    }
+
+    public void setEx3r(double ex3r) {
+        this.ex3r = ex3r;
+    }
+
+    public void setEx4r(double ex4r) {
+        this.ex4r = ex4r;
+    }
+
+    public void setEx5r(double ex5r) {
+        this.ex5r = ex5r;
+    }
+
+    public void setEx6r(double ex6r) {
+        this.ex6r = ex6r;
+    }
+
+    public void setEx7r(double ex7r) {
+        this.ex7r = ex7r;
+    }
+
+    public void setEx8r(double ex8r) {
+        this.ex8r = ex8r;
+    }
+
+    public void setEx9r(double ex9r) {
+        this.ex9r = ex9r;
+    }
+
+    public void setEx10r(double ex10r) {
+        this.ex10r = ex10r;
     }
 
     public void setName(String name) {
@@ -173,10 +291,46 @@ public class RiskEvent {
         double factor = 1e2; // = 1 * 10^5 = 100000.
         this.ER=Math.round(er * factor) / factor;
     }
+    public void calculateERr() {
+        double er=ex1r+ex2r+ex3r+ex4r+ex5r+ex6r+ex7r+ex8r+ex9r+ex10r;
+        er/=10;
+        double factor = 1e2; // = 1 * 10^5 = 100000.
+        this.ERr=Math.round(er * factor) / factor;
+    }
     public void calculateVRER() {
         double x=ER*lrer;
         double factor = 1e2; // = 1 * 10^5 = 100000.
         vrer = Math.round(x * factor) / factor;
+    }
+    public void calculateLrerRAndVrerR () {
+        double x=lrer*0.75;
+        double factor = 1e2; // = 1 * 10^5 = 100000.
+        this.lrerR=Math.round(x * factor) / factor;
+        x=vrer*0.75;
+        this.vrerR=Math.round(x * factor) / factor;
+    }
+    public void CalculateResEx(){
+        double x=ex1*0.75;
+        double factor = 1e2; // = 1 * 10^5 = 100000.
+        ex1r=Math.round(x * factor) / factor;
+        x=ex2*0.75;
+        ex2r=Math.round(x * factor) / factor;
+        x=ex3*0.75;
+        ex3r=Math.round(x * factor) / factor;
+        x=ex4*0.75;
+        ex4r=Math.round(x * factor) / factor;
+        x=ex5*0.75;
+        ex5r=Math.round(x * factor) / factor;
+        x=ex6*0.75;
+        ex6r=Math.round(x * factor) / factor;
+        x=ex7*0.75;
+        ex7r=Math.round(x * factor) / factor;
+        x=ex8*0.75;
+        ex8r=Math.round(x * factor) / factor;
+        x=ex9*0.75;
+        ex9r=Math.round(x * factor) / factor;
+        x=ex10*0.75;
+        ex10r=Math.round(x * factor) / factor;
     }
     public void setAllEx() {
         ex1=marks.get(0);
