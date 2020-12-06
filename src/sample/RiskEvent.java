@@ -1,5 +1,8 @@
 package sample;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+
 import java.util.ArrayList;
 
 public class RiskEvent {
@@ -16,12 +19,49 @@ public class RiskEvent {
     private double ex8;
     private double ex9;
     private double ex10;
+    private double lrer;
+    private double vrer;
+    private String priority;
+    private final ObjectProperty<RiskSolution> riskSolution = new SimpleObjectProperty<>();
+    public final ObjectProperty<RiskSolution> riskSolutionProperty() {
+        return this.riskSolution;
+    }
+    public final String getRiskSolution() {
+        if( this.riskSolutionProperty().get()==RiskSolution.first);
+        return "попереднє навчання членів проектного колективу;";
+    }
 
-    public RiskEvent(String name, ArrayList<Double> marks) {
+
+    public final void setRiskSolution(final RiskSolution riskSolution) {
+        this.riskSolutionProperty().set(riskSolution);
+    }
+    public RiskEvent(String name, ArrayList<Double> marks,double lrer) {
         this.name = name;
         this.marks = marks;
         this.setAllEx();
         this.calculateER();
+        this.lrer=lrer;
+        this.calculateVRER();
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
+    public double getLrer() {
+        return lrer;
+    }
+
+    public void setLrer(double lrer) {
+        this.lrer = lrer;
+    }
+
+    public double getVrer() {
+        return vrer;
+    }
+
+    public String getPriority() {
+        return priority;
     }
 
     public String getName() {
@@ -128,7 +168,13 @@ public class RiskEvent {
     public void calculateER() {
         double er=ex1+ex2+ex3+ex4+ex5+ex6+ex7+ex8+ex9+ex10;
         er/=10;
-        this.ER=er;
+        double factor = 1e2; // = 1 * 10^5 = 100000.
+        this.ER=Math.round(er * factor) / factor;
+    }
+    public void calculateVRER() {
+        double x=ER*lrer;
+        double factor = 1e2; // = 1 * 10^5 = 100000.
+        vrer = Math.round(x * factor) / factor;
     }
     public void setAllEx() {
         ex1=marks.get(0);

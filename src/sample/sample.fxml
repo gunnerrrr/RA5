@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.PointLight?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -100,6 +101,7 @@
                                                                 <Label fx:id="percentManR1" layoutX="202.0" layoutY="165.0" text="0%" AnchorPane.rightAnchor="79.0" />
                                                                 <Label layoutX="36.0" layoutY="216.0" text="Сума:" />
                                                                 <Label fx:id="percentManR11" layoutX="98.0" layoutY="217.0" text="0%" />
+                                                                <Button fx:id="calculateButton1" layoutX="113.0" layoutY="248.0" mnemonicParsing="false" text="Обчислити" />
                                                             </children>
                                                         </AnchorPane>
                                                     </children></AnchorPane>
@@ -141,22 +143,22 @@
                                                                     <content>
                                                                         <AnchorPane prefHeight="402.0" prefWidth="424.0" styleClass="sources">
                                                                             <children>
-                                                                                <CheckBox fx:id="с1r" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="недооцінювання витрат на реалізацію програмного проекту (надмірно низька вартість)" AnchorPane.leftAnchor="25.0" />
-                                                                                <CheckBox fx:id="с2r" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="переоцінювання витрат на реалізацію програмного проекту (надмірно висока вартість)" AnchorPane.leftAnchor="25.0" />
-                                                                                <CheckBox fx:id="с3r" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="фінансові ускладнення у компанії-замовника ПЗ" AnchorPane.leftAnchor="25.0" />
-                                                                                <CheckBox fx:id="с4r" layoutX="25.0" layoutY="121.0" mnemonicParsing="false" text="фінансові ускладнення у компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
-                                                                                <CheckBox fx:id="с5r" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" text="збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації" AnchorPane.leftAnchor="25.0" />
-                                                                                <CheckBox fx:id="с6r" layoutX="25.0" layoutY="181.0" mnemonicParsing="false" text="збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації" AnchorPane.leftAnchor="25.0" />
-                                                                                <CheckBox fx:id="с7r" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" text="висока вартість виконання повторних робіт, необхідних для зміни вимог до ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="c1r" layoutX="25.0" layoutY="30.0" mnemonicParsing="false" text="недооцінювання витрат на реалізацію програмного проекту (надмірно низька вартість)" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="c2r" layoutX="25.0" layoutY="60.0" mnemonicParsing="false" text="переоцінювання витрат на реалізацію програмного проекту (надмірно висока вартість)" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="c3r" layoutX="25.0" layoutY="91.0" mnemonicParsing="false" text="фінансові ускладнення у компанії-замовника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="c4r" layoutX="25.0" layoutY="121.0" mnemonicParsing="false" text="фінансові ускладнення у компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="c5r" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" text="збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="c6r" layoutX="25.0" layoutY="181.0" mnemonicParsing="false" text="збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="c7r" layoutX="25.0" layoutY="212.0" mnemonicParsing="false" text="висока вартість виконання повторних робіт, необхідних для зміни вимог до ПЗ" AnchorPane.leftAnchor="25.0" />
                                                                                 <PointLight color="CHARTREUSE" layoutX="310.0" layoutY="33.0" lightOn="true" AnchorPane.rightAnchor="161.0" />
                                                                                 <Label layoutX="27.0" text="Оберіть елементи настання вартісних ризикових подій" textAlignment="CENTER">
                                                                                     <font>
                                                                                         <Font name="Khmer Sangam MN" size="13.0" />
                                                                                     </font>
                                                                                 </Label>
-                                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #000000;" />
-                                                                                <CheckBox fx:id="с8r" layoutX="25.0" layoutY="242.0" mnemonicParsing="false" text="реорганізація структурних підрозділів у компанії-замовника ПЗ" AnchorPane.leftAnchor="25.0" />
-                                                                                <CheckBox fx:id="с9r" layoutX="25.0" layoutY="270.0" mnemonicParsing="false" text="реорганізація команди виконавців у компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <Separator layoutX="35.0" layoutY="24.0" prefHeight="5.0" prefWidth="243.0" style="-fx-background-color: #744545;" />
+                                                                                <CheckBox fx:id="c8r" layoutX="25.0" layoutY="242.0" mnemonicParsing="false" text="реорганізація структурних підрозділів у компанії-замовника ПЗ" AnchorPane.leftAnchor="25.0" />
+                                                                                <CheckBox fx:id="c9r" layoutX="25.0" layoutY="270.0" mnemonicParsing="false" text="реорганізація команди виконавців у компанії-розробника ПЗ" AnchorPane.leftAnchor="25.0" />
                                                                             </children>
                                                                         </AnchorPane>
                                                                     </content></Tab>
@@ -230,6 +232,7 @@
                                                                 <Label fx:id="percentManR" layoutX="202.0" layoutY="165.0" text="0%" AnchorPane.rightAnchor="79.0" />
                                                                 <Label layoutX="40.0" layoutY="226.0" text="Сума:" />
                                                                 <Label fx:id="percentManR111" layoutX="94.0" layoutY="227.0" text="0%" />
+                                                                <Button fx:id="calculateButton2" layoutX="126.0" layoutY="256.0" mnemonicParsing="false" text="Обчислити" />
                                                             </children>
                                                         </AnchorPane>
                                                     </children></AnchorPane>
@@ -253,8 +256,8 @@
                                                     <children>
                                                         <TableView fx:id="tableRiskProbability" prefHeight="496.0" prefWidth="1072.0">
                                                             <columns>
-                                                                <TableColumn fx:id="tableEventsR" prefWidth="620.0" text="Ризикові події" />
-                                                                <TableColumn fx:id="ex1" minWidth="0.0" prefWidth="40.0" text="1" />
+                                                                <TableColumn fx:id="tableEventsR" prefWidth="525.0" text="Ризикові події" />
+                                                                <TableColumn fx:id="ex1" minWidth="0.0" prefWidth="40" text="1" />
                                                                 <TableColumn fx:id="ex2" prefWidth="40.0" text="2" />
                                                                 <TableColumn fx:id="ex3" prefWidth="40.0" text="3" />
                                                                 <TableColumn fx:id="ex4" prefWidth="40.0" text="4" />
@@ -264,11 +267,8 @@
                                                                 <TableColumn fx:id="ex8" prefWidth="40.0" text="8" />
                                                                 <TableColumn fx:id="ex9" prefWidth="40.0" text="9" />
                                                                 <TableColumn fx:id="ex10" prefWidth="40.0" text="10" />
-                                                                <TableColumn fx:id="er" prefWidth="100.0" text="ER" />
+                                                                <TableColumn fx:id="er" prefWidth="175.0" text="ER" />
                                                             </columns>
-                                                            <rowFactory>
-
-                                                            </rowFactory>
                                                         </TableView>
                                                     </children>
                                                 </AnchorPane>
@@ -299,10 +299,10 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView layoutX="-1.0" layoutY="-3.0" prefHeight="593.0" prefWidth="1200.0">
+                                <TableView fx:id="tableSolution" layoutX="-1.0" layoutY="-3.0" prefHeight="593.0" prefWidth="1200.0">
                                     <columns>
-                                        <TableColumn prefWidth="600.0" text="Ризикові події" />
-                                        <TableColumn minWidth="0.0" prefWidth="600.0" text="Можливе рішення" />
+                                        <TableColumn fx:id="RiskEvents" prefWidth="600.0" text="Ризикові події" />
+                                        <TableColumn fx:id="Solution" minWidth="0.0" prefWidth="600.0" text="Можливе рішення" />
                                     </columns>
                                 </TableView>
                             </children></AnchorPane>
