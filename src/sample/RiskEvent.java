@@ -20,8 +20,8 @@ public class RiskEvent {
     public RiskEvent(String name, ArrayList<Double> marks) {
         this.name = name;
         this.marks = marks;
+        this.setAllEx();
         this.calculateER();
-        this.calculateEX();
     }
 
     public String getName() {
@@ -76,6 +76,46 @@ public class RiskEvent {
         return ex10;
     }
 
+    public void setEx1(double ex1) {
+        this.ex1 = ex1;
+    }
+
+    public void setEx2(double ex2) {
+        this.ex2 = ex2;
+    }
+
+    public void setEx3(double ex3) {
+        this.ex3 = ex3;
+    }
+
+    public void setEx4(double ex4) {
+        this.ex4 = ex4;
+    }
+
+    public void setEx5(double ex5) {
+        this.ex5 = ex5;
+    }
+
+    public void setEx6(double ex6) {
+        this.ex6 = ex6;
+    }
+
+    public void setEx7(double ex7) {
+        this.ex7 = ex7;
+    }
+
+    public void setEx8(double ex8) {
+        this.ex8 = ex8;
+    }
+
+    public void setEx9(double ex9) {
+        this.ex9 = ex9;
+    }
+
+    public void setEx10(double ex10) {
+        this.ex10 = ex10;
+    }
+
     public ArrayList<Double> getMarks() {
         return marks;
     }
@@ -83,17 +123,14 @@ public class RiskEvent {
     public void setMarks(ArrayList<Double> marks) {
         this.marks = marks;
         this.calculateER();
-        this.calculateEX();
+        this.setAllEx();
     }
     public void calculateER() {
-        double er=0;
-        for (double n:this.marks) {
-            er+=n;
-        }
-        er/=this.marks.size();
+        double er=ex1+ex2+ex3+ex4+ex5+ex6+ex7+ex8+ex9+ex10;
+        er/=10;
         this.ER=er;
     }
-    public void calculateEX() {
+    public void setAllEx() {
         ex1=marks.get(0);
         ex2=marks.get(1);
         ex3=marks.get(2);

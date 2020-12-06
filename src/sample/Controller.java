@@ -3,14 +3,25 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
+import javafx.scene.Group;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
+
+import javafx.event.EventHandler;
+
 import javafx.scene.control.Label;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Controller {
@@ -324,85 +335,181 @@ public class Controller {
     private Tab resultTab;
     @FXML
     void initialize () {
-        ArrayList<Double> riskEventMarks = new ArrayList<>();
-        for(double i=0.1;i<=0.6;i+=0.05) {
-            riskEventMarks.add(i);
-        }
+        tableRiskProbability.setEditable(true);
+
+
+
         ObservableList<RiskEvent> riskEvents = FXCollections.observableArrayList(
                 new RiskEvent("затримки у постачанні обладнання, необхідного для підтримки процесу " +
-                "розроблення ПЗ",riskEventMarks),
+                "розроблення ПЗ",randomMarks()),
                 new RiskEvent("затримки у постачанні інструментальних засобів, необхідних для підтримки " +
-                        "процесу розроблення ПЗ",riskEventMarks),
+                        "процесу розроблення ПЗ",randomMarks()),
                 new RiskEvent("небажання команди виконавців ПЗ використовувати інструментальні засоби для " +
-                        "підтримки процесу розроблення ПЗ",riskEventMarks),
-                new RiskEvent("відмова команди виконавців від CASE-засобів розроблення ПЗ",riskEventMarks),
-                new RiskEvent("формування запитів на більш потужні інструментальні засоби розроблення ПЗ",riskEventMarks),
-                new RiskEvent("недостатня продуктивність баз(и) даних для підтримки процесу розроблення ПЗ",riskEventMarks),
+                        "підтримки процесу розроблення ПЗ",randomMarks()),
+                new RiskEvent("відмова команди виконавців від CASE-засобів розроблення ПЗ",randomMarks()),
+                new RiskEvent("формування запитів на більш потужні інструментальні засоби розроблення ПЗ",randomMarks()),
+                new RiskEvent("недостатня продуктивність баз(и) даних для підтримки процесу розроблення ПЗ",randomMarks()),
                 new RiskEvent("програмні компоненти, які використовують повторно в ПЗ, мають дефекти та " +
-                        "обмежені функціональні можливості",riskEventMarks),
-                new RiskEvent("неефективність програмного коду, згенерованого CASE-засобами розроблення ПЗ",riskEventMarks),
+                        "обмежені функціональні можливості",randomMarks()),
+                new RiskEvent("неефективність програмного коду, згенерованого CASE-засобами розроблення ПЗ",randomMarks()),
                 new RiskEvent("неможливість інтеграції CASE-засобів з іншими інструментальними засобами " +
-                        "для підтримки процесу розроблення ПЗ",riskEventMarks),
+                        "для підтримки процесу розроблення ПЗ",randomMarks()),
                 new RiskEvent("швидкість виявлення дефектів у програмному коді є нижчою від раніше " +
-                        "запланованих термінів",riskEventMarks),
-                new RiskEvent("поява дефектних системних компонент, які використовують для розроблення ПЗ",riskEventMarks),
-                new RiskEvent("недооцінювання витрат на реалізацію програмного проекту (надмірно низька вартість)",riskEventMarks),
-                new RiskEvent("переоцінювання витрат на реалізацію програмного проекту (надмірно висока вартість)",riskEventMarks),
-                new RiskEvent("фінансові ускладнення у компанії-замовника ПЗ",riskEventMarks),
-                new RiskEvent("фінансові ускладнення у компанії-розробника ПЗ",riskEventMarks),
-                new RiskEvent("збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації",riskEventMarks),
-                new RiskEvent("збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації",riskEventMarks),
-                new RiskEvent("висока вартість виконання повторних робіт, необхідних для зміни вимог до ПЗ",riskEventMarks),
-                new RiskEvent("реорганізація структурних підрозділів у компанії-замовника ПЗ",riskEventMarks),
-                new RiskEvent("реорганізація команди виконавців у компанії-розробника ПЗ",riskEventMarks),
-                new RiskEvent("зміни графіка виконання робіт з боку замовника чи виконавця",riskEventMarks),
-                new RiskEvent("порушення графіка виконання робіт у компанії-розробника ПЗ",riskEventMarks),
-                new RiskEvent("потреба зміни користувацьких вимог до ПЗ з боку компанії-замовника ПЗ",riskEventMarks),
-                new RiskEvent("потреба зміни функціональних вимог до ПЗ з боку компанії-розробника ПЗ",riskEventMarks),
-                new RiskEvent("потреба виконання великої кількості повторних робіт, необхідних для зміни вимог до ПЗ",riskEventMarks),
-                new RiskEvent("недооцінювання тривалості етапів реалізації програмного проекту з боку компанії-розробника ПЗ",riskEventMarks),
-                new RiskEvent("переоцінювання тривалості етапів реалізації програмного проекту",riskEventMarks),
-                new RiskEvent("остаточний розмір ПЗ перевищує заплановані його характеристики",riskEventMarks),
-                new RiskEvent("остаточний розмір ПЗ значно менший за планові його характеристики",riskEventMarks),
-                new RiskEvent("поява на ринку аналогічного ПЗ до виходу замовленого",riskEventMarks),
-                new RiskEvent("поява на ринку більш конкурентоздатного ПЗ",riskEventMarks),
-                new RiskEvent("низький моральний стан персоналу команди виконавців ПЗ",riskEventMarks),
-                new RiskEvent("низька взаємодія між членами команди виконавців ПЗ",riskEventMarks),
-                new RiskEvent("пасивність керівника (менеджера) програмного проекту",riskEventMarks),
-                new RiskEvent("недостатня компетентність керівника (менеджера) програмного проекту",riskEventMarks),
-                new RiskEvent("незадоволеність замовника результатами етапів реалізації програмного проекту",riskEventMarks),
-                new RiskEvent("недостатня кількість фахівців у команді виконавців ПЗ з необхідним професійним рівнем",riskEventMarks),
-                new RiskEvent("хвороба провідного виконавця в найкритичніший момент розроблення ПЗ",riskEventMarks),
-                new RiskEvent("одночасна хвороба декількох виконавців підчас розроблення ПЗ",riskEventMarks),
-                new RiskEvent("неможливість організації необхідного навчання персоналу команди виконавців ПЗ",riskEventMarks),
-                new RiskEvent("зміна пріоритетів у процесі управління програмним проектом",riskEventMarks),
-                new RiskEvent("недооцінювання необхідної кількості розробників (підрядників і субпідрядників) на етапах життєвого циклу розроблення ПЗ",riskEventMarks),
-                new RiskEvent("переоцінювання необхідної кількості розробників (підрядників і субпідрядників) на етапах життєвого циклу розроблення ПЗ",riskEventMarks),
-                new RiskEvent("надмірне документування результатів на етапах реалізації програмного проекту",riskEventMarks),
-                new RiskEvent("недостатнє документування результатів на етапах реалізації програмного проекту",riskEventMarks),
-                new RiskEvent("нереалістичне прогнозування результатів на етапах реалізації програмного проекту",riskEventMarks),
-                new RiskEvent("недостатній професійний рівень представників від компанії-замовника ПЗ",riskEventMarks)
+                        "запланованих термінів",randomMarks()),
+                new RiskEvent("поява дефектних системних компонент, які використовують для розроблення ПЗ",randomMarks()),
+                new RiskEvent("недооцінювання витрат на реалізацію програмного проекту (надмірно низька вартість)",randomMarks()),
+                new RiskEvent("переоцінювання витрат на реалізацію програмного проекту (надмірно висока вартість)",randomMarks()),
+                new RiskEvent("фінансові ускладнення у компанії-замовника ПЗ",randomMarks()),
+                new RiskEvent("фінансові ускладнення у компанії-розробника ПЗ",randomMarks()),
+                new RiskEvent("збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації",randomMarks()),
+                new RiskEvent("збільшення бюджету програмного проекта з ініціативи компанії-розробника ПЗ під час його реалізації",randomMarks()),
+                new RiskEvent("висока вартість виконання повторних робіт, необхідних для зміни вимог до ПЗ",randomMarks()),
+                new RiskEvent("реорганізація структурних підрозділів у компанії-замовника ПЗ",randomMarks()),
+                new RiskEvent("реорганізація команди виконавців у компанії-розробника ПЗ",randomMarks()),
+                new RiskEvent("зміни графіка виконання робіт з боку замовника чи виконавця",randomMarks()),
+                new RiskEvent("порушення графіка виконання робіт у компанії-розробника ПЗ",randomMarks()),
+                new RiskEvent("потреба зміни користувацьких вимог до ПЗ з боку компанії-замовника ПЗ",randomMarks()),
+                new RiskEvent("потреба зміни функціональних вимог до ПЗ з боку компанії-розробника ПЗ",randomMarks()),
+                new RiskEvent("потреба виконання великої кількості повторних робіт, необхідних для зміни вимог до ПЗ",randomMarks()),
+                new RiskEvent("недооцінювання тривалості етапів реалізації програмного проекту з боку компанії-розробника ПЗ",randomMarks()),
+                new RiskEvent("переоцінювання тривалості етапів реалізації програмного проекту",randomMarks()),
+                new RiskEvent("остаточний розмір ПЗ перевищує заплановані його характеристики",randomMarks()),
+                new RiskEvent("остаточний розмір ПЗ значно менший за планові його характеристики",randomMarks()),
+                new RiskEvent("поява на ринку аналогічного ПЗ до виходу замовленого",randomMarks()),
+                new RiskEvent("поява на ринку більш конкурентоздатного ПЗ",randomMarks()),
+                new RiskEvent("низький моральний стан персоналу команди виконавців ПЗ",randomMarks()),
+                new RiskEvent("низька взаємодія між членами команди виконавців ПЗ",randomMarks()),
+                new RiskEvent("пасивність керівника (менеджера) програмного проекту",randomMarks()),
+                new RiskEvent("недостатня компетентність керівника (менеджера) програмного проекту",randomMarks()),
+                new RiskEvent("незадоволеність замовника результатами етапів реалізації програмного проекту",randomMarks()),
+                new RiskEvent("недостатня кількість фахівців у команді виконавців ПЗ з необхідним професійним рівнем",randomMarks()),
+                new RiskEvent("хвороба провідного виконавця в найкритичніший момент розроблення ПЗ",randomMarks()),
+                new RiskEvent("одночасна хвороба декількох виконавців підчас розроблення ПЗ",randomMarks()),
+                new RiskEvent("неможливість організації необхідного навчання персоналу команди виконавців ПЗ",randomMarks()),
+                new RiskEvent("зміна пріоритетів у процесі управління програмним проектом",randomMarks()),
+                new RiskEvent("недооцінювання необхідної кількості розробників (підрядників і субпідрядників) на етапах життєвого циклу розроблення ПЗ",randomMarks()),
+                new RiskEvent("переоцінювання необхідної кількості розробників (підрядників і субпідрядників) на етапах життєвого циклу розроблення ПЗ",randomMarks()),
+                new RiskEvent("надмірне документування результатів на етапах реалізації програмного проекту",randomMarks()),
+                new RiskEvent("недостатнє документування результатів на етапах реалізації програмного проекту",randomMarks()),
+                new RiskEvent("нереалістичне прогнозування результатів на етапах реалізації програмного проекту",randomMarks()),
+                new RiskEvent("недостатній професійний рівень представників від компанії-замовника ПЗ",randomMarks())
                 );
-
+        Callback<TableColumn<RiskEvent,Double>, TableCell<RiskEvent,Double>> cellFactory = p -> new EditingCell();
         tableEventsR.setCellValueFactory(new PropertyValueFactory<RiskEvent, String>("name"));
         ex1.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex1"));
+        ex1.setCellFactory(cellFactory);
         ex2.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex2"));
+        ex2.setCellFactory(cellFactory);
         ex3.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex3"));
+        ex3.setCellFactory(cellFactory);
         ex4.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex4"));
+        ex4.setCellFactory(cellFactory);
         ex5.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex5"));
+        ex5.setCellFactory(cellFactory);
         ex6.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex6"));
+        ex6.setCellFactory(cellFactory);
         ex7.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex7"));
+        ex7.setCellFactory(cellFactory);
         ex8.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex8"));
+        ex8.setCellFactory(cellFactory);
         ex9.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex9"));
+        ex9.setCellFactory(cellFactory);
         ex10.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ex10"));
+        ex10.setCellFactory(cellFactory);
         er.setCellValueFactory(new PropertyValueFactory<RiskEvent,Double>("ER"));
 
-        System.out.println(riskEvents.size());
+        ex1.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx1((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex2.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx2((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex3.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx3((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex4.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx4((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex5.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx5((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex6.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx6((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex7.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx7((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex8.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx8((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex9.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx9((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+        ex10.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<RiskEvent, Double>>() {
+            @Override
+            public void handle(CellEditEvent<RiskEvent, Double> t) {
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEx10((t.getNewValue()));
+                ((RiskEvent) t.getTableView().getItems().get(t.getTablePosition().getRow())).calculateER();
+            }
+        });
+
+
 
         tableRiskProbability.setItems(riskEvents);
-
         tableRiskProbability.setEditable(true);
+
+
+
+
 //        tableEventsR.setCellFactory();
 //        tableRiskProbability.
     }
+    static ArrayList<Double> randomMarks() {
+        ArrayList <Double> riskEventMarks=new ArrayList<Double>();
+        for(int i=0;i<10;i++) {
+            double x=Math.random();
+            double factor = 1e2; // = 1 * 10^5 = 100000.
+            double result = Math.round(x * factor) / factor;
+            System.out.println(factor);
+            riskEventMarks.add(result);
+        }
+        return riskEventMarks;
+    }
+
 }

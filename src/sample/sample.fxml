@@ -253,18 +253,18 @@
                                                     <children>
                                                         <TableView fx:id="tableRiskProbability" prefHeight="496.0" prefWidth="1072.0">
                                                             <columns>
-                                                                <TableColumn fx:id="tableEventsR" prefWidth="725.0" text="Ризикові події" />
-                                                                <TableColumn fx:id="ex1" minWidth="0.0" prefWidth="30.0" text="1" />
-                                                                <TableColumn fx:id="ex2" prefWidth="30.0" text="2" />
-                                                                <TableColumn fx:id="ex3" prefWidth="30.0" text="3" />
-                                                                <TableColumn fx:id="ex4" prefWidth="30.0" text="4" />
-                                                                <TableColumn fx:id="ex5" prefWidth="30.0" text="5" />
-                                                                <TableColumn fx:id="ex6" prefWidth="30.0" text="6" />
-                                                                <TableColumn fx:id="ex7" prefWidth="30.0" text="7" />
-                                                                <TableColumn fx:id="ex8" prefWidth="30.0" text="8" />
-                                                                <TableColumn fx:id="ex9" prefWidth="30.0" text="9" />
-                                                                <TableColumn fx:id="ex10" prefWidth="30.0" text="10" />
-                                                                <TableColumn fx:id="er" prefWidth="75.0" text="ER" />
+                                                                <TableColumn fx:id="tableEventsR" prefWidth="620.0" text="Ризикові події" />
+                                                                <TableColumn fx:id="ex1" minWidth="0.0" prefWidth="40.0" text="1" />
+                                                                <TableColumn fx:id="ex2" prefWidth="40.0" text="2" />
+                                                                <TableColumn fx:id="ex3" prefWidth="40.0" text="3" />
+                                                                <TableColumn fx:id="ex4" prefWidth="40.0" text="4" />
+                                                                <TableColumn fx:id="ex5" prefWidth="40.0" text="5" />
+                                                                <TableColumn fx:id="ex6" prefWidth="40.0" text="6" />
+                                                                <TableColumn fx:id="ex7" prefWidth="40.0" text="7" />
+                                                                <TableColumn fx:id="ex8" prefWidth="40.0" text="8" />
+                                                                <TableColumn fx:id="ex9" prefWidth="40.0" text="9" />
+                                                                <TableColumn fx:id="ex10" prefWidth="40.0" text="10" />
+                                                                <TableColumn fx:id="er" prefWidth="100.0" text="ER" />
                                                             </columns>
                                                             <rowFactory>
 
